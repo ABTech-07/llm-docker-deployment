@@ -1,12 +1,8 @@
-from transformers import AutoTokenizer, AutoModelForCausalLM
-import torch
+from transformers import pipeline
 
-MODEL_NAME = "distilgpt2"
+# Load the text generation model once
+generator = pipeline("text-generation", model="distilgpt2")
 
-tokenizer = AutoTokenizer.from_pretrained(MODEL_NAME)
-model = AutoModelForCausalLM.from_pretrained(MODEL_NAME)
-
-def generate_text(prompt: str, max_length: int = 100) -> str:
-    inputs = tokenizer.encode(prompt, return_tensors="pt")
-    outputs = model.generate(inputs, max_length=max_length, do_sample=True)
-    return tokenizer.decode(outputs[0], skip_special_tokens=True)
+def generate_text(prompt: str) -> str:
+    output = generator(prompt, max_length=50, num_return_sequences=1)
+    return output[0]["generated_text"]
