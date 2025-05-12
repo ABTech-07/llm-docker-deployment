@@ -29,3 +29,18 @@ This project demonstrates how to **deploy a lightweight Large Language Model (LL
 ```bash
 git clone https://github.com/ABTech-07/llm-docker-deployment.git
 cd llm-docker-deployment
+
+🌐 Access the App Locally
+Frontend: http://localhost:3000
+Backend API Docs: http://localhost:8000/docs
+
+📌 Future Enhancements
+
+Add loading spinner with streaming output
+Switch to a more powerful model (e.g., GPT-2 or LLaMA)
+Add advanced prompt controls (temperature, max tokens)
+Deployment using CI/CD or serverless platforms
+
+🤝 Contributions
+
+Contributions, suggestions, and feedback are welcome! Feel free to fork this repo and submit pull requests.
