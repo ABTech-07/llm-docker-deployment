@@ -1,0 +1,24 @@
+
+
+services:
+  backend:
+    build: ./backend
+    container_name: llm-backend
+    ports:
+      - "8000:8000"
+    networks:
+      - llmnet
+
+  frontend:
+    build: ./frontend
+    container_name: llm-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    networks:
+      - llmnet
+
+networks:
+  llmnet:
+    driver: bridge
